@@ -9,6 +9,7 @@ using System.Collections.Generic;
 
 namespace SBroker
 {
+    // Uses the csv files to load data
     public class Aktie
     {
         [Name("Name")]
