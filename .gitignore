@@ -3,6 +3,13 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Single file
+sbroker.csv
+sold.csv
+Depot_20220331.csv
+Depot_20220331_corr.csv
+dividends.csv
+
 # User-specific files
 *.rsuser
 *.suo

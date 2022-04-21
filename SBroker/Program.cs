@@ -57,58 +57,60 @@ namespace SBroker
                         Console.WriteLine("Paid: " + tot);
                     }
                     Console.WriteLine();
-                    //IEnumerable<Aktie> ienum = (IEnumerable<Aktie>)records;
-                    //IEnumerator<Aktie> ienumerat = records.GetEnumerator();
-                    //while (ienumerat.MoveNext())
-                    //{
-                    //    Console.Write(ienumerat.Current.name.ToString() + ": " + " EUR ");
-                    //    decimal res = ienumerat.Current.price * ienumerat.Current.amount;
-                    //    Console.WriteLine(res.ToString());
-                    //    Console.WriteLine("Date: {0}", ienumerat.Current.bought.ToString());
-                    //    Console.WriteLine("Fees: {0} EUR", ienumerat.Current.fees.ToString());
-                    //    decimal total = res + ienumerat.Current.fees;
-                    //    Console.WriteLine("Total: {0} EUR ", total);
-                    //    Console.WriteLine();
-                    //}
-                }
-            }
-        }
-        private List<Aktie> GetMethod()
-        {
-            string fileName = @"C:\Users\dirkm\source\repos\SBroker\SBroker\sbroker.csv";
-            using (var streamReader = new StreamReader(fileName))
-            {
-                using (var csvReader = new CsvReader(streamReader, CultureInfo.InvariantCulture))
-                {
-                    var records = csvReader.GetRecords<Aktie>().ToList();
-                    Console.WriteLine(records.Count);
-                    foreach (var item in records)
+                    IEnumerable<Aktie> ienum = (IEnumerable<Aktie>)records;
+                    IEnumerator<Aktie> ienumerat = records.GetEnumerator();
+                    while (ienumerat.MoveNext())
                     {
-                        Console.WriteLine(item.name);
-                        Console.WriteLine(item.isin + ". Type: " + item.isin.GetType());
-                        Console.WriteLine(item.bought + ". Type: " + item.bought.GetType());
-                        Console.WriteLine(item.price + ". Type: " + item.price.GetType());
-                        Console.WriteLine(item.amount + ". Type: " + item.amount.GetType());
-                        Console.WriteLine(item.fees + ". Type: " + item.fees.GetType());
-                        Console.WriteLine("************");
+                        Console.Write(ienumerat.Current.name.ToString() + ": " + " EUR ");
+                        decimal res = ienumerat.Current.price * ienumerat.Current.amount;
+                        Console.WriteLine(res.ToString());
+                        Console.WriteLine("Date: {0}", ienumerat.Current.bought.ToString());
+                        Console.WriteLine("Fees: {0} EUR", ienumerat.Current.fees.ToString());
+                        decimal total = res + ienumerat.Current.fees;
+                        Console.WriteLine("Total: {0} EUR ", total);
+                        Console.WriteLine();
                     }
-                    //Console.WriteLine();
-                    //IEnumerable<Aktie> ienum = (IEnumerable<Aktie>)records;
-                    //IEnumerator<Aktie> ienumerat = records.GetEnumerator();
-                    //while (ienumerat.MoveNext())
-                    //{
-                    //    Console.Write(ienumerat.Current.name.ToString() + ": " + " EUR ");
-                    //    decimal res = ienumerat.Current.price * ienumerat.Current.amount;
-                    //    Console.WriteLine(res.ToString());
-                    //    Console.WriteLine("Date: {0}", ienumerat.Current.bought.ToString());
-                    //    Console.WriteLine("Fees: {0} EUR", ienumerat.Current.fees.ToString());
-                    //    decimal total = res + ienumerat.Current.fees;
-                    //    Console.WriteLine("Total: {0} EUR ", total);
-                    //    Console.WriteLine();
-                    //}
-                    return records;
                 }
             }
         }
+        //private List<Aktie> GetMethod()
+        //private void GetMethod()
+        //{
+        //    string fileName = @"C:\Users\dirkm\source\repos\SBroker\SBroker\sbroker.csv";
+        //    using (var streamReader = new StreamReader(fileName))
+        //    {
+        //        using (var csvReader = new CsvReader(streamReader, CultureInfo.InvariantCulture))
+        //        {
+        //            var records = csvReader.GetRecords<Aktie>().ToList();
+        //            Console.WriteLine(records.Count);
+        //            foreach (var item in records)
+        //            {
+        //                Console.WriteLine(item.name);
+        //                Console.WriteLine(item.isin + ". Type: " + item.isin.GetType());
+        //                Console.WriteLine(item.bought + ". Type: " + item.bought.GetType());
+        //                Console.WriteLine(item.price + ". Type: " + item.price.GetType());
+        //                Console.WriteLine(item.amount + ". Type: " + item.amount.GetType());
+        //                Console.WriteLine(item.fees + ". Type: " + item.fees.GetType());
+        //                Console.WriteLine("************");
+        //            }
+        //            Console.WriteLine();
+        //            IEnumerable<Aktie> ienum = (IEnumerable<Aktie>)records;
+        //            IEnumerator<Aktie> ienumerat = records.GetEnumerator();
+        //            while (ienumerat.MoveNext())
+        //            {
+        //                Console.Write(ienumerat.Current.name.ToString() + ": " + " EUR ");
+        //                decimal res = ienumerat.Current.price * ienumerat.Current.amount;
+        //                Console.WriteLine(res.ToString());
+        //                Console.WriteLine("Date: {0}", ienumerat.Current.bought.ToString());
+        //                Console.WriteLine("Fees: {0} EUR", ienumerat.Current.fees.ToString());
+        //                decimal total = res + ienumerat.Current.fees;
+        //                Console.WriteLine("Total: {0} EUR ", total);
+        //                Console.WriteLine();
+        //            }
+        //            //return records;
+        //        }
+        //    }
+        //}
+        
     }
 }
